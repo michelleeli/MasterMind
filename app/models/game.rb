@@ -8,7 +8,7 @@ class Game < ApplicationRecord
     has_many :guesses
   
     def set_code
-        self.code ||= "1234"
+        self.code ||= generate_code
     end
     
     def set_remaining_attempts
@@ -27,7 +27,7 @@ class Game < ApplicationRecord
     def win_game?
         self.guesses.each do |guess|
             res = guess.validate_guess(self.code, guess.attempt)
-            if res[:correct_location] == 4 and res[:correct_numbers] == 4
+            if res[:correct_location] == self.code.length and res[:correct_numbers] == self.code.length
                 return true
             end 
         end 
@@ -43,12 +43,29 @@ class Game < ApplicationRecord
         self.save!
     end 
 
+    def set_mode(mode)
+        self.mode = mode
+        self.save!
+    end 
+
     private    
 
-    def generate_code 
-        res = URI.open('https://www.random.org/integers/?num=4&min=1&max=6&col=1&base=10&format=plain&rnd=new').read
-        code = res.split("\n").join()
-        return code
+    # def generate_code 
+    #     level = self.mode
+    #     res = URI.open("https://www.random.org/integers/?num=#{level}&min=1&max=6&col=1&base=10&format=plain&rnd=new").read
+    #     code = res.split("\n").join()
+    #     return code
+    # end 
+
+    def generate_code
+        level = self.mode
+        if level == 1
+            return "1234"
+        elsif level == 2
+            return "12345"
+        elsif level == 3
+            return "234567"
+        end 
     end 
 
 end

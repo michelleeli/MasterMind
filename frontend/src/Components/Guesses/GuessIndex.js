@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import GuessItem from "./GuessItem";
 
-export default function GuessIndex ({gameId, fetchGame}) {
+export default function GuessIndex ({gameId, fetchGame, code}) {
     const [guesses, setGuesses] = useState([])
     const [attempt, setAttempt] = useState()
     const [feedback, setFeedback] = useState()
@@ -22,7 +22,7 @@ export default function GuessIndex ({gameId, fetchGame}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (/^\d+$/.test(attempt) && attempt.length == 4) {
+        if (/^\d+$/.test(attempt) && attempt.length == code.length) {
             setInvalidAttempt(false)
             submitAttempt()
         } else {
@@ -56,14 +56,14 @@ export default function GuessIndex ({gameId, fetchGame}) {
         <>
         {(guesses?.length < 10 && !winGame) &&
         <form onSubmit={handleSubmit}>
-            <input onChange= {(e) => setAttempt(e.target.value)} type="text" maxLength="4" value={attempt}/>
+            <input onChange= {(e) => setAttempt(e.target.value)} type="text" maxLength={code.length} value={attempt}/>
             <input type="submit"/>
         </form>}
         {invalidAttempt && <div>Invalid Attempt</div>}
-        <div className="table">
+        {guesses.length > 0 && <div className="table">
             <div>Guesses</div>
             <div>Feedback</div>
-        </div>
+        </div>}
         {guesses?.map((guess) => <GuessItem guess={guess} feedback={feedback}/>)}
         </>
     )

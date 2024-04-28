@@ -1,9 +1,14 @@
 class GamesController < ApplicationController    
     def create
         @game = Game.new
+        mode = params[:mode].to_i
+        @game.set_mode(mode)
         if @game.save
             @game.set_hint
+
             render json: @game
+        else 
+            render json: {message: 'backend error'}
         end 
     end 
 

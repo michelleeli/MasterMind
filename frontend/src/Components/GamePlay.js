@@ -33,7 +33,7 @@ export default function GamePlay({id, code}) {
         <div id="header">{attemptsRemaining} Remaining Attempts</div>
         <button onClick={()=> setHelp(true)}>Get Hint</button>
         {help && <div>{hint}</div>}
-        <GuessIndex gameId={id} fetchGame={fetchGame} winGame={winGame}/>
+        <GuessIndex gameId={id} fetchGame={fetchGame} winGame={winGame} code={code}/>
         </>
     )
 }
