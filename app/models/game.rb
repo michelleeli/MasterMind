@@ -34,6 +34,15 @@ class Game < ApplicationRecord
         return false
     end 
 
+    def set_hint 
+        total = 0
+        self.code.each_char do |num|
+            total += num.to_i
+        end 
+        self.hint ||= "The sum of the numbers is #{total}"
+        self.save!
+    end 
+
     private    
 
     def generate_code 

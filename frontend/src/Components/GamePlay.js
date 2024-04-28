@@ -6,6 +6,8 @@ export default function GamePlay({id, code}) {
     const [attemptsRemaining, setAttemptsRemaining] = useState()
     const [gameOver, setGameOver] = useState()
     const [winGame, setWinGame] = useState()
+    const [hint, setHint] = useState()
+    const [help, setHelp] = useState()
 
     useEffect(()=> {
         fetchGame()
@@ -18,6 +20,7 @@ export default function GamePlay({id, code}) {
             setAttemptsRemaining(data.remaining_attempts)
             setGameOver(data.game_over)
             setWinGame(data.win_game)
+            setHint(data.hint)
         } else {
             console.log('error')
         }
@@ -28,6 +31,8 @@ export default function GamePlay({id, code}) {
         {winGame && <Modal message="win"/>}
         {gameOver && <Modal message="lose" code={code}/>}
         <div id="header">{attemptsRemaining} Remaining Attempts</div>
+        <button onClick={()=> setHelp(true)}>Get Hint</button>
+        {help && <div>{hint}</div>}
         <GuessIndex gameId={id} fetchGame={fetchGame} winGame={winGame}/>
         </>
     )
