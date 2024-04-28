@@ -1,0 +1,15 @@
+.table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    row-gap: 0;
+    width: 80%;
+    margin: auto;
+}
+
+#items > * {
+    height: 3rem;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid black;
+}
