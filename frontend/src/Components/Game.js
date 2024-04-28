@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import GamePlay from './GamePlay';
-import Modal from './Modal';
 
 export default function Game () {
     const [id, setId] = useState()

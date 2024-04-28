@@ -8,7 +8,7 @@ class Game < ApplicationRecord
     has_many :guesses
   
     def set_code
-        self.code ||= generate_code
+        self.code ||= "1234"
     end
     
     def set_remaining_attempts

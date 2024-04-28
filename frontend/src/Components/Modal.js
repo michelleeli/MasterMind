@@ -15,9 +15,14 @@ export default function Modal({message, code}) {
         }
     }
 
+
     return (
-        <div id="modal">{text}</div>
+        <div id="modal">
+            <div>{text}</div>
+            <button onClick={()=> window.location.reload()}>Play Again</button>
+        </div>
     )
 }
 
 
+g
