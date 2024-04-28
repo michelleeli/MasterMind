@@ -23,6 +23,3 @@ export default function Modal({message, code}) {
         </div>
     )
 }
-
-
-g
