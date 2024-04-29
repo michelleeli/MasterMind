@@ -1,18 +1,13 @@
 import './Table.css'
 
-export default function GuessItem ({guess, feedback}) {
-    const correct_location = feedback.correct_location
-    const correct_numbers = feedback.correct_numbers
+export default function GuessItem ({guess}) {
     return (
         <>
-        <div className="table" id="items">
-            <div> {guess.attempt}</div>
-            <div className="feedback">
-                <div>Correct Location: {correct_location} </div>
-                <div>Correct Numbers: {correct_numbers}</div>
-            </div>
+        <h2> {guess.attempt}</h2>
+        <div className="feedback">
+            <div>Correct Location: {guess.correct_location} </div>
+            <div>Correct Numbers: {guess.correct_numbers}</div>
         </div>
-        <br/>
         </>
     )
 }

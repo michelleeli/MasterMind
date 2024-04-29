@@ -17,7 +17,9 @@ class Guess < ApplicationRecord
           end
         end
       end
-      return { correct_numbers: correct_numbers, correct_location: correct_location}
+      self.correct_numbers = correct_numbers
+      self.correct_location = correct_location
+      self.save!
   end
 
 end

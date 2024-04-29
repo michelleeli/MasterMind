@@ -30,8 +30,13 @@ export default function GamePlay({id, code}) {
         <>
         {winGame && <Modal message="win"/>}
         {gameOver && <Modal message="lose" code={code}/>}
-        <div id="header">{attemptsRemaining} Remaining Attempts</div>
-        <button onClick={()=> setHelp(true)}>Get Hint</button>
+        <div className="nav">
+            <div id="header">{attemptsRemaining} Remaining Attempts</div>
+            <button id="hint" onClick={()=> setHelp(true)}>
+                <i class="fa-solid fa-lightbulb" style={{color: "#FFD43B",}}></i>
+                 Hint
+            </button>
+        </div>
         {help && <div>{hint}</div>}
         <GuessIndex gameId={id} fetchGame={fetchGame} winGame={winGame} code={code}/>
         </>

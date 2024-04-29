@@ -4,7 +4,6 @@ import GuessItem from "./GuessItem";
 export default function GuessIndex ({gameId, fetchGame, code}) {
     const [guesses, setGuesses] = useState([])
     const [attempt, setAttempt] = useState()
-    const [feedback, setFeedback] = useState()
     const [winGame, setWinGame] = useState()
     const [invalidAttempt, setInvalidAttempt] = useState()
 
@@ -42,7 +41,6 @@ export default function GuessIndex ({gameId, fetchGame, code}) {
         })
         if (res.ok) {
             const data = await res.json()
-            setFeedback(data)
             setWinGame(data.win_game)
         } else {
           console.log('error')
@@ -56,15 +54,17 @@ export default function GuessIndex ({gameId, fetchGame, code}) {
         <>
         {(guesses?.length < 10 && !winGame) &&
         <form onSubmit={handleSubmit}>
-            <input onChange= {(e) => setAttempt(e.target.value)} type="text" maxLength={code.length} value={attempt}/>
-            <input type="submit"/>
-        </form>}
+            <input id="form" onChange= {(e) => setAttempt(e.target.value)} type="text" maxLength={code.length} value={attempt}/>
+            <input id="submit" type="submit"/>
+        </form>}        
         {invalidAttempt && <div>Invalid Attempt</div>}
-        {guesses.length > 0 && <div className="table">
-            <div>Guesses</div>
-            <div>Feedback</div>
-        </div>}
-        {guesses?.map((guess) => <GuessItem guess={guess} feedback={feedback}/>)}
+        <div className="table">
+            {guesses.length > 0 && <>
+                <h2>Guesses</h2>
+                <h2>Feedback</h2>
+            </>}
+            {guesses?.map((guess) => <GuessItem guess={guess}/>)}
+        </div>
         </>
     )
 }

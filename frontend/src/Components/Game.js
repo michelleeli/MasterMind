@@ -10,7 +10,6 @@ export default function Game ({mode}) {
     }, [])
 
     const newGame = async () => {
-        console.log('creating')
         const res = await fetch('/games', {
             method: 'POST',
             headers: {
@@ -21,7 +20,6 @@ export default function Game ({mode}) {
         })
             if (res.ok) {
                 const data = await res.json();
-                console.log(data)
                 setId(data.id)
                 setCode(data.code)
             }
@@ -29,7 +27,6 @@ export default function Game ({mode}) {
 
     return (
         <>
-        {code && <div>{code}</div>}
         {id && <GamePlay id={id} code={code}/>}
         </>
     )

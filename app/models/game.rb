@@ -26,8 +26,8 @@ class Game < ApplicationRecord
 
     def win_game?
         self.guesses.each do |guess|
-            res = guess.validate_guess(self.code, guess.attempt)
-            if res[:correct_location] == self.code.length and res[:correct_numbers] == self.code.length
+            guess.validate_guess(self.code, guess.attempt)
+            if guess.correct_location == self.code.length and guess.correct_numbers == self.code.length
                 return true
             end 
         end 
@@ -50,22 +50,22 @@ class Game < ApplicationRecord
 
     private    
 
-    # def generate_code 
-    #     level = self.mode
-    #     res = URI.open("https://www.random.org/integers/?num=#{level}&min=1&max=6&col=1&base=10&format=plain&rnd=new").read
-    #     code = res.split("\n").join()
-    #     return code
-    # end 
-
-    def generate_code
+    def generate_code 
         level = self.mode
-        if level == 1
-            return "1234"
-        elsif level == 2
-            return "12345"
-        elsif level == 3
-            return "234567"
-        end 
+        res = URI.open("https://www.random.org/integers/?num=#{level + 3}&min=1&max=6&col=1&base=10&format=plain&rnd=new").read
+        code = res.split("\n").join()
+        return code
     end 
+
+    # def generate_code
+    #     level = self.mode
+    #     if level == 1
+    #         return "1234"
+    #     elsif level == 2
+    #         return "12345"
+    #     elsif level == 3
+    #         return "234567"
+    #     end 
+    # end 
 
 end

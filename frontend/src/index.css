@@ -12,18 +12,104 @@ code {
     monospace;
 }
 
+html *{
+  font-family: "Oxanium", sans-serif;
+}
+
 body {
   text-align: center;
+  background-color: rgb(18, 8, 46);
+  color: white;
 }
 
 #modal {
   display: block;
-  background-color: pink;
+  background-color: rgb(243,170,144);
   border: 1px solid black;
   position: fixed;
   z-index: 1;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 2rem;
+  padding: 3vw;
+  font-size: 2rem;
+  border-radius: 20px;
+}
+
+img {
+  width: 100%;
+  max-height: 12vh;
+  object-fit: cover;
+  object-position: center 45%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.modes {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modes > * {
+  color: white;
+  width: 25%;
+  height: 60vh;
+  background-color: rgb(35, 16, 86);
+  margin-top: 10vh;
+  border: none;
+  border-radius: 40px;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1vh;
+  height: 4vh;
+  font-size: 3vh;
+  margin-bottom: 2px;
+}
+
+#hint {
+  background-color: rgb(238,118,188);
+  font-size: 3vh;
+  height: 4vh;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+.fa-lightbulb {
+  margin-right: 1vh;
+}
+
+#form {
+  width: 12vw;
+  height: 4vh;
+  margin-right: 1vw;
+  margin-top: 0px;
+  margin-bottom: 1vh;
+}
+
+#submit {
+  font-size: 2.5vh;
+  background-color: rgb(243,170,144);
+  padding: 1vh;
+  border: none;
+  border-radius: 12px;
+  color: white;
+}
+
+#button {
+  font-size: 2.5vh;
+  background-color: white;
+  padding: 1vh;
+  border: none;
+  border-radius: 12px;
+  color: rgb(243,170,144);
+  cursor: pointer;
 }

@@ -1,15 +1,21 @@
 .table {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    row-gap: 0;
+    row-gap: 0px;
     width: 80%;
     margin: auto;
+    border: 1px solid white;
+    max-height: 50%;
 }
 
-#items > * {
+.table > * {
     height: 3rem;
+    border: 1px white solid;
     margin: 0px;
-    padding: 0px;
-    border: 1px solid black;
+    padding-top: 1vh;
 }
+
+h2 {
+    height: 2.5rem;
+}
+

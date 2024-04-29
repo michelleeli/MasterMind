@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import {useState } from "react";
 import Game from "./Game";
 
 export default function Home() {
@@ -11,11 +10,27 @@ export default function Home() {
 
     return (
         <>
+        <img src={require("../../src/logo.png")}></img>
         {!mode && 
-        <div>
-            <button value={1} onClick={handleClick}>Easy</button>
-            <button value={2} onClick={handleClick}>Medium</button>
-            <button value={3} onClick={handleClick}>Hard</button>
+        <div className="modes">
+            <button value={1} onClick={handleClick}>
+                <div>EASY</div>
+                <br/>
+                <i class="fa-solid fa-star"></i>
+            </button>
+            <button value={2} onClick={handleClick}>
+                <div>MEDIUM</div>
+                <br/>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </button>
+            <button value={3} onClick={handleClick}>
+                <div>HARD</div>
+                <br/>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>    
+                <i class="fa-solid fa-star"></i>    
+            </button>
         </div>}
         {mode && <Game mode={mode}/>}
         </>
