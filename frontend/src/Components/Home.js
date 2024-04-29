@@ -10,7 +10,7 @@ export default function Home() {
 
     return (
         <>
-        <img src={require("../../src/logo.png")}></img>
+        <img onClick={()=> window.location.reload()} src={require("../../src/logo.png")}></img>
         {!mode && 
         <div className="modes">
             <button value={1} onClick={handleClick}>
