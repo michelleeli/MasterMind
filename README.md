@@ -106,6 +106,6 @@ POST | /guesses |guesses#create|
 4. **Add Bonus Features**
   - Add column to `Games` table: `hint`
   - Add column to `Games` table: `mode`
-5. **Frontend:** Integrate frontend to fetch backend APIs, rendering the proper data to be rendered to the player
+5. **Frontend:** Integrate frontend to fetch backend APIs, rendering the proper data to be displayed to the player
 
 
