@@ -57,7 +57,7 @@ export default function GuessIndex ({gameId, fetchGame, code}) {
             <input id="form" onChange= {(e) => setAttempt(e.target.value)} type="text" maxLength={code.length} value={attempt}/>
             <input id="submit" type="submit"/>
         </form>}        
-        {invalidAttempt && <div>Invalid Attempt</div>}
+        {invalidAttempt && <div id="invalid">Invalid Attempt</div>}
         <div className="table">
             {guesses.length > 0 && <>
                 <h2>Guesses</h2>

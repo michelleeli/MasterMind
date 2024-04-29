@@ -9,7 +9,7 @@ export default function Modal({message, code}) {
 
     function setMessage(){
         if (message == "win") {
-            setText("CONGRATULATIONS! YOU'VE CRACKED THE CODE")
+            setText(`CONGRATULATIONS! YOU'VE CRACKED THE CODE`)
         } else if (message == "lose") {
             setText(`YOU LOSE! THE CODE WAS ${code}`)
         }
