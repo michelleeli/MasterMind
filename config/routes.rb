@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :games
   resources :guesses
+  get '*path', to: "static_pages#frontend_index"
 end
