@@ -14,13 +14,4 @@ class GuessesController < ApplicationController
         @guesses = Guess.all.sort
         render json: @guesses
     end 
-
-    def show
-        @guess = Guess.find_by(params[:id])
-        render @guess
-    end 
-
-    def guess_params
-        params.permit(:attempt, :game_id)
-    end
 end

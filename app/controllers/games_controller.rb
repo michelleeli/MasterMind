@@ -21,15 +21,4 @@ class GamesController < ApplicationController
         end 
     end 
 
-    def update
-        debugger
-        @game = Game.find_by(params[:id])
-        if @game.set_remaining_attempts
-            render json: @game
-        else
-            render json: {errors: @review.errors.full_messages}, status: :unprocessible_entity
-        end 
-    end 
-
-
 end
