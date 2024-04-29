@@ -95,4 +95,17 @@ POST | /guesses |guesses#create|
 - If the player is able to guess the code by 10 guesses, a modal will pop up notifying the player they have won and providing the option to play again
 <img width="1440" alt="Screen Shot 2024-04-29 at 2 49 05 PM" src="https://github.com/michelleeli/Mastermind/assets/130802181/ce528eac-478f-4fbc-9b09-c9dd017da854">
 
+## Project Planning
+1. **Create database migrations:** Plan database schema and how to create relationships between tables
+2. **Create models:** Write necessary functions for game logic
+   - `Game` model handles Game logic (create a game code by fetching API and if game is won or lost)
+   - `Guess` model handles Guess validation (how many locations and numbers are correct)
+3. **Create controllers:**
+   - `Games` controller handles routes to create and show `game`
+   - `Guesses` controller handles routes to create and show `guesses`
+4. **Add Bonus Features**
+  - Add column to `Games` table: `hint`
+  - Add column to `Games` table: `mode`
+5. **Frontend:** Integrate frontend to fetch backend APIs, rendering the proper data to be rendered to the player
+
 
